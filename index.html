@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wahyu Rent Car – Jasa Rental Mobil Terpercaya Jakarta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #c8102e;
+      --dark: #111111;
+      --mid: #1e1e1e;
+      --accent: #f5a623;
+      --light: #f5f5f5;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--dark); color: #aaa; font-size: 13px;
+      padding: 8px 40px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .topbar a { color: var(--accent); text-decoration: none; }
+
+    /* NAVBAR */
+    nav {
+      background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 70px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon {
+      width: 44px; height: 44px; background: var(--primary); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: white;
+    }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: var(--dark); line-height:1.1; }
+    .logo-sub { font-size: 11px; color: #888; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 15px; position: relative; padding-bottom: 4px; transition: color .2s; }
+    .nav-links a::after { content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--primary); transition:width .3s; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta {
+      background: var(--primary); color: white; padding: 10px 22px; border-radius: 6px;
+      font-weight: 600; font-size: 14px; text-decoration: none;
+      transition: background .2s, transform .2s; white-space: nowrap;
+    }
+    .nav-cta:hover { background: #a00d25; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh; background: linear-gradient(135deg, #111 0%, #1e1e1e 50%, #2a0a10 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      position: relative; overflow: hidden; padding: 60px 24px;
+    }
+    .hero::before {
+      content: 'WAHYU'; position: absolute;
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(120px, 25vw, 300px);
+      color: rgba(255,255,255,.03); top: 50%; left: 50%;
+      transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block; background: var(--primary); color: white;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 30px; margin-bottom: 20px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 9vw, 110px);
+      color: var(--white); line-height: 1; letter-spacing: 2px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p {
+      color: #bbb; font-size: 18px; max-width: 520px; margin: 20px auto 36px;
+      line-height: 1.7; animation: fadeUp .7s .2s ease both;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp .7s .3s ease both; }
+    .btn-primary {
+      background: var(--primary); color: white; padding: 14px 32px; border-radius: 8px;
+      font-weight: 700; font-size: 16px; text-decoration: none; transition: all .2s;
+    }
+    .btn-primary:hover { background: #a00d25; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,16,46,.4); }
+    .btn-outline {
+      background: transparent; color: white; border: 2px solid rgba(255,255,255,.3);
+      padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,.08); }
+    .hero-stats { display: flex; gap: 48px; justify-content: center; margin-top: 60px; animation: fadeUp .7s .4s ease both; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 13px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+    /* STRIP */
+    .car-strip { background: var(--primary); overflow: hidden; height: 72px; display: flex; align-items: center; }
+    .car-strip-inner { display: flex; gap: 48px; white-space: nowrap; animation: scrollx 20s linear infinite; }
+    .car-strip span { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: rgba(255,255,255,.4); letter-spacing: 2px; }
+    .car-strip span.dot { color: rgba(255,255,255,.8); font-size: 10px; position: relative; top:-2px; }
+
+    /* ABOUT */
+    .section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-img {
+      background: linear-gradient(135deg, #111 0%, #2a0a10 100%);
+      border-radius: 16px; height: 420px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; font-size: 120px;
+    }
+    .about-img .badge-overlay {
+      position: absolute; bottom: 24px; left: 24px; background: var(--primary);
+      color: white; padding: 12px 20px; border-radius: 10px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px;
+    }
+    .section-tag { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 58px); line-height: 1.1; margin-bottom: 20px; }
+    .about-text p { color: #555; line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+    .feature { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px; }
+    .feature-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; flex-shrink: 0; }
+
+    /* WHY */
+    .why-section { background: var(--light); padding: 80px 40px; }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+    .why-card {
+      background: white; border-radius: 14px; padding: 36px 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s; border-bottom: 3px solid transparent;
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.12); border-bottom-color: var(--primary); }
+    .why-icon { font-size: 40px; margin-bottom: 20px; }
+    .why-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 10px; }
+    .why-card p { color: #666; font-size: 15px; line-height: 1.7; }
+
+    /* FLEET */
+    .fleet-section { padding: 80px 40px; }
+    .fleet-inner { max-width: 1200px; margin: 0 auto; }
+    .fleet-header { text-align: center; margin-bottom: 48px; }
+    .tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .tab { padding: 9px 22px; border-radius: 30px; font-weight: 600; font-size: 14px; border: 2px solid #ddd; cursor: pointer; transition: all .2s; background: white; color: #666; }
+    .tab.active { background: var(--primary); border-color: var(--primary); color: white; }
+    .tab:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+    .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .car-card { background: white; border: 1.5px solid #eee; border-radius: 14px; overflow: hidden; transition: box-shadow .3s, transform .3s; }
+    .car-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,.15); transform: translateY(-8px); }
+    .car-card.animate-in {
+      animation: cardPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes cardPop {
+      0%   { opacity: 0; transform: translateY(30px) scale(0.94); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .car-img {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+    .car-bg-blue   { background: linear-gradient(135deg, #0d1b4b 0%, #1a3a7a 60%, #1565c0 100%); }
+    .car-bg-silver { background: linear-gradient(135deg, #263238 0%, #455a64 60%, #607d8b 100%); }
+    .car-bg-green  { background: linear-gradient(135deg, #1b3a1e 0%, #2e7d32 60%, #388e3c 100%); }
+    .car-bg-red    { background: linear-gradient(135deg, #4a0000 0%, #b71c1c 60%, #c62828 100%); }
+    .car-bg-orange { background: linear-gradient(135deg, #4e1a00 0%, #bf360c 60%, #e64a19 100%); }
+    .car-bg-dark   { background: linear-gradient(135deg, #050505 0%, #1a1a1a 60%, #2d2d2d 100%); }
+    .car-bg-gold   { background: linear-gradient(135deg, #1a0e00 0%, #3e2000 60%, #5d3300 100%); }
+    .car-bg-teal   { background: linear-gradient(135deg, #002921 0%, #00695c 60%, #00897b 100%); }
+
+    /* Road moving line at bottom */
+    .road-line {
+      position: absolute;
+      bottom: 14px; left: 0; width: 200%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg,
+        rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 24px,
+        transparent 24px, transparent 48px);
+      animation: roadMove 1.2s linear infinite;
+      z-index: 1;
+    }
+    @keyframes roadMove { from { transform: translateX(0); } to { transform: translateX(48px); } }
+
+    /* SVG car illustration */
+    .car-svg {
+      width: 88%; max-width: 295px;
+      position: relative; z-index: 2;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+      animation: carFloat 3s ease-in-out infinite;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
+    }
+    @keyframes carFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-7px); }
+    }
+    .car-card:hover .car-svg {
+      transform: translateY(-12px) scale(1.07);
+      filter: drop-shadow(0 20px 28px rgba(0,0,0,0.7));
+      animation: none;
+    }
+    /* Speed lines sweep on hover */
+    .car-img::before {
+      content: '';
+      position: absolute;
+      top: 38%; left: 0;
+      width: 0; height: 2px;
+      background: rgba(255,255,255,0.4);
+      box-shadow: 0 -14px 0 rgba(255,255,255,0.2), 0 14px 0 rgba(255,255,255,0.2);
+      z-index: 1;
+      transition: none;
+    }
+    .car-card:hover .car-img::before {
+      animation: speedLine 0.35s ease-out forwards;
+    }
+    @keyframes speedLine {
+      0%   { width: 0;    opacity: 0.8; left: 0; }
+      60%  { width: 55%;  opacity: 0.6; }
+      100% { width: 75%;  opacity: 0;   }
+    }
+    .car-badge {
+      position: absolute; top: 12px; right: 12px; z-index: 3;
+      background: var(--primary); color: white;
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(200,16,46,0.4);
+    }
+    .car-info { padding: 22px; }
+    .car-info h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 4px; }
+    .car-type { font-size: 13px; color: #999; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .price-row:last-of-type { border-bottom: none; }
+    .price-label { font-size: 13px; color: #777; }
+    .price-value { font-weight: 700; color: var(--primary); }
+    .car-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+    .tag { background: #f5f5f5; color: #555; font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+    .btn-book { display: block; width: 100%; background: var(--dark); color: white; text-align: center; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; margin-top: 16px; transition: background .2s; }
+    .btn-book:hover { background: var(--primary); }
+
+    /* CTA */
+    .cta-banner { background: linear-gradient(135deg, var(--primary) 0%, #8b0a1e 100%); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); color: white; letter-spacing: 2px; margin-bottom: 16px; }
+    .cta-banner p { color: rgba(255,255,255,.8); font-size: 18px; max-width: 520px; margin: 0 auto 36px; }
+    .cta-phone { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: white; letter-spacing: 2px; display: block; margin-bottom: 28px; text-decoration: none; }
+    .cta-phone:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: #aaa; padding: 60px 40px 32px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    footer h4 { color: white; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin-bottom: 18px; }
+    footer p, footer li { font-size: 14px; line-height: 2; }
+    footer ul { list-style: none; }
+    footer a { color: #aaa; text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--accent); }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: white; letter-spacing: 2px; margin-bottom: 14px; }
+    .footer-logo span { color: var(--primary); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #2a2a2a; padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; }
+
+    /* FLOAT */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25d366; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 24px rgba(37,211,102,.4); text-decoration: none; animation: pulse 2s infinite; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes scrollx { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes pulse { 0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,.4); } 50% { box-shadow: 0 6px 40px rgba(37,211,102,.7); } }
+
+    /* HAMBURGER BUTTON */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    /* MOBILE MENU OVERLAY */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+    }
+    .mobile-menu-overlay.open { display: flex; }
+
+    /* Left dim area */
+    .mobile-menu-dim {
+      width: 42%;
+      background: rgba(0,0,0,0.45);
+      cursor: pointer;
+      position: relative;
+    }
+    .hamburger-in-menu {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .hamburger-in-menu span {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      background: white;
+      position: relative;
+    }
+    .hamburger-in-menu span::before,
+    .hamburger-in-menu span::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 2.5px;
+      background: white;
+      left: 0;
+    }
+    .hamburger-in-menu span::before { top: -7px; }
+    .hamburger-in-menu span::after { top: 7px; }
+
+    /* Right slide-in panel */
+    .mobile-menu-panel {
+      flex: 1;
+      background: #8bc34a;
+      padding: 28px 28px 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      animation: slideInRight 0.28s ease;
+    }
+    @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      font-size: 26px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    /* Search bar inside menu */
+    .mobile-menu-search {
+      margin: 48px 0 32px;
+    }
+    .mobile-menu-search input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      padding: 8px 0 8px 32px;
+      font-size: 16px;
+      color: white;
+      outline: none;
+    }
+    .mobile-menu-search input::placeholder { color: rgba(255,255,255,0.7); }
+    .mobile-menu-search .search-icon {
+      position: absolute;
+      margin-top: 8px;
+      margin-left: 0;
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap::before {
+      content: '🔍';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+
+    /* Menu links */
+    .mobile-menu-links { display: flex; flex-direction: column; gap: 4px; }
+    .mobile-menu-links a {
+      display: block;
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 30px;
+      transition: background 0.2s;
+    }
+    .mobile-menu-links a.active-menu,
+    .mobile-menu-links a:hover {
+      background: white;
+      color: #4a7c1f;
+      font-weight: 700;
+    }
+
+    /* WA & Phone buttons at bottom */
+    .mobile-menu-bottom {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .mobile-menu-bottom a {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .btn-wa-m { background: #25d366; }
+    .btn-phone-m { background: #1a73e8; }
+
+    @media (max-width: 900px) {
+      .about, .footer-grid { grid-template-columns: 1fr; }
+      .why-grid, .fleet-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .section, .fleet-section, .why-section { padding: 60px 20px; }
+      .topbar { display: none; }
+    }
+    @media (max-width: 600px) {
+      .why-grid, .fleet-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; } .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>📍 Jakarta, Indonesia &nbsp;|&nbsp; Layanan 24 Jam</span>
+  <span>📞 <a href="tel:628123456789">+62 812-3456-789</a> &nbsp;|&nbsp; <a href="https://wa.me/628123456789">WhatsApp Sekarang</a></span>
+</div>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">W</div>
+    <div>
+      <div class="logo-text">Wahyu Rent Car</div>
+      <div class="logo-sub">Rental Mobil Terpercaya</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#fleet">Armada</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+  <a href="https://wa.me/628123456789" class="nav-cta">📞 Hubungi Kami</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-dim" id="menuDim">
+    <div class="hamburger-in-menu">
+      <span></span>
+    </div>
+  </div>
+  <div class="mobile-menu-panel">
+    <button class="mobile-menu-close" id="menuClose">&#10005;</button>
+    <div class="mobile-menu-search">
+      <div class="search-wrap">
+        <input type="text" placeholder="Cari...">
+      </div>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="#home" class="menu-link active-menu" data-target="home">Home</a>
+      <a href="#about" class="menu-link" data-target="about">Profil</a>
+      <a href="#fleet" class="menu-link" data-target="fleet">Armada</a>
+      <a href="#contact" class="menu-link" data-target="contact">Contact</a>
+      <a href="https://wa.me/628123456789" class="menu-link menu-link-wa" target="_blank">&#128222; Call Us Now</a>
+    </div>
+    <div class="mobile-menu-bottom">
+      <a href="https://wa.me/628123456789" class="btn-wa-m" title="WhatsApp">&#128172;</a>
+      <a href="tel:628123456789" class="btn-phone-m" title="Telepon">&#128222;</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div>
+    <div class="hero-badge">✦ Rental Mobil No. 1 di Jakarta ✦</div>
+    <h1>Wahyu <span>Rent</span> Car</h1>
+    <p>Solusi rental mobil terpercaya untuk kebutuhan perjalanan Anda. Armada berkualitas, harga terjangkau, driver profesional.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/628123456789" class="btn-primary">🚗 Booking Sekarang</a>
+      <a href="#fleet" class="btn-outline">Lihat Armada</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Pelanggan Puas</div></div>
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Unit Armada</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Tahun Pengalaman</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="car-strip">
+  <div class="car-strip-inner">
+    <span>INNOVA ZENIX</span><span class="dot">●</span><span>AVANZA</span><span class="dot">●</span>
+    <span>XENIA</span><span class="dot">●</span><span>AGYA</span><span class="dot">●</span>
+    <span>BRIO</span><span class="dot">●</span><span>FORTUNER</span><span class="dot">●</span>
+    <span>ALPHARD</span><span class="dot">●</span>
+    <span>INNOVA ZENIX</span><span class="dot">●</span><span>AVANZA</span><span class="dot">●</span>
+    <span>XENIA</span><span class="dot">●</span><span>AGYA</span><span class="dot">●</span>
+    <span>BRIO</span><span class="dot">●</span><span>FORTUNER</span><span class="dot">●</span>
+    <span>ALPHARD</span><span class="dot">●</span>
+  </div>
+</div>
+
+<div class="section" id="about">
+  <div class="about">
+    <div class="about-img" style="animation: float 3s ease-in-out infinite;">
+      🚗
+      <div class="badge-overlay">🏆 Terpercaya Sejak 2014</div>
+    </div>
+    <div class="about-text">
+      <div class="section-tag">Tentang Kami</div>
+      <h2 class="section-title">Wahyu Rental Car Jakarta</h2>
+      <p>Wahyu Rental Car adalah salah satu penyedia jasa rental mobil terbaik dan terpercaya di Jakarta. Kami menawarkan berbagai pilihan kendaraan terawat untuk memenuhi kebutuhan perjalanan Anda, baik bisnis maupun liburan keluarga.</p>
+      <p>Dengan armada lengkap mulai dari city car hingga SUV premium, serta driver berpengalaman siap melayani 24 jam, kami berkomitmen memberikan pengalaman perjalanan terbaik bagi setiap pelanggan.</p>
+      <div class="features">
+        <div class="feature"><div class="feature-dot"></div><span>Armada terawat & prima</span></div>
+        <div class="feature"><div class="feature-dot"></div><span>Driver berpengalaman</span></div>
+        <div class="feature"><div class="feature-dot"></div><span>Harga transparan</span></div>
+        <div class="feature"><div class="feature-dot"></div><span>Layanan 24 jam</span></div>
+        <div class="feature"><div class="feature-dot"></div><span>Booking mudah via WA</span></div>
+        <div class="feature"><div class="feature-dot"></div><span>Bisa antar-jemput</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-section">
+  <div class="why-inner">
+    <div style="text-align:center;margin-bottom:12px;"><div class="section-tag" style="display:inline-block;">Mengapa Kami</div></div>
+    <h2 class="section-title" style="text-align:center;">Keunggulan <span style="color:var(--primary)">Wahyu</span> Rent Car</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">💰</div><h3>Tarif Terjangkau</h3><p>Harga rental kompetitif dan transparan tanpa biaya tersembunyi. Dapatkan nilai terbaik untuk setiap perjalanan Anda.</p></div>
+      <div class="why-card"><div class="why-icon">🧑‍✈️</div><h3>Driver Profesional</h3><p>Driver kami berpengalaman, berlisensi resmi, menguasai rute Jakarta, dan selalu mengutamakan keselamatan penumpang.</p></div>
+      <div class="why-card"><div class="why-icon">🚘</div><h3>Armada Berkualitas</h3><p>Semua unit dirawat secara rutin dan berkala, memastikan kenyamanan dan keamanan selama perjalanan Anda.</p></div>
+      <div class="why-card"><div class="why-icon">⏰</div><h3>Layanan 24 Jam</h3><p>Kami siap melayani Anda kapanpun dibutuhkan, termasuk tengah malam, hari libur, dan hari raya nasional.</p></div>
+      <div class="why-card"><div class="why-icon">📱</div><h3>Booking Mudah</h3><p>Reservasi cukup via WhatsApp dalam hitungan menit. Proses cepat, mudah, dan konfirmasi langsung dari tim kami.</p></div>
+      <div class="why-card"><div class="why-icon">🛡️</div><h3>Asuransi Lengkap</h3><p>Setiap unit dilengkapi dengan asuransi kendaraan sehingga perjalanan Anda lebih aman dan tenang.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="fleet-section" id="fleet">
+  <div class="fleet-inner">
+    <div class="fleet-header">
+      <div class="section-tag">Pilihan Kendaraan</div>
+      <h2 class="section-title">Armada <span style="color:var(--primary)">Kami</span></h2>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-filter="semua">Semua</div>
+      <div class="tab" data-filter="keluarga">Keluarga</div>
+      <div class="tab" data-filter="citycar">City Car</div>
+      <div class="tab" data-filter="premium">Premium</div>
+    </div>
+    <div class="fleet-grid">
+
+      <!-- INNOVA ZENIX -->
+      <div class="car-card" data-category="keluarga">
+        <div class="car-img car-bg-blue">
+          <div class="car-badge">BEST SELLER</div>
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Shadow -->
+            <ellipse cx="160" cy="148" rx="110" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <!-- Body main -->
+            <rect x="30" y="75" width="260" height="65" rx="10" fill="#1a5fa8"/>
+            <!-- Roof -->
+            <path d="M70 75 Q85 38 130 35 L200 35 Q240 38 255 75 Z" fill="#1a5fa8"/>
+            <!-- Roof darker -->
+            <path d="M80 75 Q93 42 133 39 L197 39 Q230 42 245 75 Z" fill="#1850908"/>
+            <!-- Windows -->
+            <path d="M88 72 Q97 48 128 45 L152 45 L152 72 Z" fill="#a8d4f5" opacity="0.9"/>
+            <rect x="158" y="45" width="70" height="27" rx="3" fill="#a8d4f5" opacity="0.9"/>
+            <!-- Window divider -->
+            <line x1="155" y1="45" x2="155" y2="73" stroke="#1a5fa8" stroke-width="3"/>
+            <!-- Door lines -->
+            <line x1="155" y1="75" x2="155" y2="138" stroke="#1248808" stroke-width="2" opacity="0.4"/>
+            <line x1="225" y1="78" x2="225" y2="138" stroke="#124880" stroke-width="2" opacity="0.4"/>
+            <!-- Grille area -->
+            <rect x="268" y="90" width="18" height="30" rx="3" fill="#0d3d6b"/>
+            <rect x="270" y="93" width="14" height="4" rx="1" fill="#333"/>
+            <rect x="270" y="100" width="14" height="4" rx="1" fill="#333"/>
+            <rect x="270" y="107" width="14" height="4" rx="1" fill="#333"/>
+            <!-- Headlight right -->
+            <ellipse cx="278" cy="88" rx="8" ry="5" fill="#fffde7"/>
+            <ellipse cx="278" cy="88" rx="5" ry="3" fill="#fff176"/>
+            <!-- Taillight left -->
+            <rect x="32" y="88" width="12" height="20" rx="3" fill="#c0392b"/>
+            <rect x="33" y="89" width="10" height="18" rx="2" fill="#e74c3c"/>
+            <!-- Bumper -->
+            <rect x="268" y="120" width="22" height="10" rx="4" fill="#0f2f52"/>
+            <rect x="30" y="120" width="20" height="10" rx="4" fill="#0f2f52"/>
+            <!-- Wheel wells -->
+            <ellipse cx="95" cy="138" rx="28" ry="10" fill="#0a1e35"/>
+            <ellipse cx="225" cy="138" rx="28" ry="10" fill="#0a1e35"/>
+            <!-- Wheels -->
+            <circle cx="95" cy="138" r="22" fill="#222"/>
+            <circle cx="95" cy="138" r="14" fill="#444"/>
+            <circle cx="95" cy="138" r="8" fill="#888"/>
+            <circle cx="95" cy="138" r="4" fill="#ccc"/>
+            <circle cx="225" cy="138" r="22" fill="#222"/>
+            <circle cx="225" cy="138" r="14" fill="#444"/>
+            <circle cx="225" cy="138" r="8" fill="#888"/>
+            <circle cx="225" cy="138" r="4" fill="#ccc"/>
+            <!-- Shine -->
+            <path d="M88 40 Q130 36 175 38" stroke="rgba(255,255,255,0.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Innova Zenix</h3><div class="car-type">MPV Keluarga</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 500.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 3.000.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 9.000.000</span></div>
+          <div class="car-tags"><span class="tag">7 Kursi</span><span class="tag">AC Dingin</span><span class="tag">Bensin</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Innova%20Zenix" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- AVANZA -->
+      <div class="car-card" data-category="keluarga">
+        <div class="car-img car-bg-silver">
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="110" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <rect x="28" y="78" width="264" height="62" rx="9" fill="#b0bec5"/>
+            <path d="M68 78 Q82 42 128 38 L200 38 Q242 42 255 78 Z" fill="#b0bec5"/>
+            <path d="M78 76 Q94 46 129 43 L198 43 Q234 46 248 76 Z" fill="#cfd8dc"/>
+            <path d="M86 74 Q98 50 127 47 L152 47 L152 74 Z" fill="#e3f2fd" opacity="0.85"/>
+            <rect x="158" y="47" width="68" height="27" rx="3" fill="#e3f2fd" opacity="0.85"/>
+            <line x1="155" y1="47" x2="155" y2="75" stroke="#90a4ae" stroke-width="3"/>
+            <line x1="155" y1="78" x2="155" y2="138" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+            <line x1="222" y1="80" x2="222" y2="138" stroke="#90a4ae" stroke-width="2" opacity="0.4"/>
+            <rect x="270" y="92" width="16" height="28" rx="3" fill="#78909c"/>
+            <rect x="272" y="95" width="12" height="3" rx="1" fill="#455a64"/>
+            <rect x="272" y="101" width="12" height="3" rx="1" fill="#455a64"/>
+            <rect x="272" y="107" width="12" height="3" rx="1" fill="#455a64"/>
+            <ellipse cx="278" cy="89" rx="8" ry="5" fill="#fffde7"/>
+            <ellipse cx="278" cy="89" rx="5" ry="3" fill="#fff176"/>
+            <rect x="32" y="90" width="11" height="18" rx="3" fill="#c0392b"/>
+            <rect x="268" y="122" width="22" height="9" rx="4" fill="#546e7a"/>
+            <rect x="30" y="122" width="20" height="9" rx="4" fill="#546e7a"/>
+            <ellipse cx="92" cy="138" rx="28" ry="10" fill="#263238"/>
+            <ellipse cx="226" cy="138" rx="28" ry="10" fill="#263238"/>
+            <circle cx="92" cy="138" r="22" fill="#222"/>
+            <circle cx="92" cy="138" r="14" fill="#555"/>
+            <circle cx="92" cy="138" r="8" fill="#999"/>
+            <circle cx="92" cy="138" r="4" fill="#ddd"/>
+            <circle cx="226" cy="138" r="22" fill="#222"/>
+            <circle cx="226" cy="138" r="14" fill="#555"/>
+            <circle cx="226" cy="138" r="8" fill="#999"/>
+            <circle cx="226" cy="138" r="4" fill="#ddd"/>
+            <path d="M86 43 Q130 39 175 41" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Toyota Avanza</h3><div class="car-type">MPV Keluarga</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 350.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 1.750.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 5.250.000</span></div>
+          <div class="car-tags"><span class="tag">7 Kursi</span><span class="tag">Irit BBM</span><span class="tag">Manual</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Avanza" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- XENIA -->
+      <div class="car-card" data-category="keluarga">
+        <div class="car-img car-bg-green">
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="110" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <rect x="28" y="78" width="264" height="62" rx="9" fill="#2e7d32"/>
+            <path d="M68 78 Q82 42 128 38 L200 38 Q242 42 255 78 Z" fill="#2e7d32"/>
+            <path d="M78 76 Q94 46 129 43 L198 43 Q234 46 248 76 Z" fill="#388e3c"/>
+            <path d="M86 74 Q98 50 127 47 L152 47 L152 74 Z" fill="#b9f6ca" opacity="0.85"/>
+            <rect x="158" y="47" width="68" height="27" rx="3" fill="#b9f6ca" opacity="0.85"/>
+            <line x1="155" y1="47" x2="155" y2="75" stroke="#1b5e20" stroke-width="3"/>
+            <line x1="155" y1="78" x2="155" y2="138" stroke="#1b5e20" stroke-width="2" opacity="0.4"/>
+            <line x1="222" y1="80" x2="222" y2="138" stroke="#1b5e20" stroke-width="2" opacity="0.4"/>
+            <rect x="270" y="92" width="16" height="28" rx="3" fill="#1b5e20"/>
+            <rect x="272" y="95" width="12" height="3" rx="1" fill="#111"/>
+            <rect x="272" y="101" width="12" height="3" rx="1" fill="#111"/>
+            <rect x="272" y="107" width="12" height="3" rx="1" fill="#111"/>
+            <ellipse cx="278" cy="89" rx="8" ry="5" fill="#fffde7"/>
+            <ellipse cx="278" cy="89" rx="5" ry="3" fill="#fff176"/>
+            <rect x="32" y="90" width="11" height="18" rx="3" fill="#c0392b"/>
+            <rect x="268" y="122" width="22" height="9" rx="4" fill="#1b5e20"/>
+            <rect x="30" y="122" width="20" height="9" rx="4" fill="#1b5e20"/>
+            <circle cx="92" cy="138" r="22" fill="#222"/><circle cx="92" cy="138" r="14" fill="#555"/><circle cx="92" cy="138" r="8" fill="#999"/><circle cx="92" cy="138" r="4" fill="#ddd"/>
+            <circle cx="226" cy="138" r="22" fill="#222"/><circle cx="226" cy="138" r="14" fill="#555"/><circle cx="226" cy="138" r="8" fill="#999"/><circle cx="226" cy="138" r="4" fill="#ddd"/>
+            <path d="M86 43 Q130 39 175 41" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Daihatsu Xenia</h3><div class="car-type">MPV Keluarga</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 350.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 1.750.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 5.250.000</span></div>
+          <div class="car-tags"><span class="tag">7 Kursi</span><span class="tag">Irit BBM</span><span class="tag">Otomatis</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Xenia" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- AGYA (City Car - hatchback shape) -->
+      <div class="car-card" data-category="citycar">
+        <div class="car-img car-bg-red">
+          <div class="car-badge">HEMAT</div>
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="100" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <rect x="40" y="82" width="240" height="58" rx="9" fill="#c62828"/>
+            <!-- Hatchback roof shorter -->
+            <path d="M90 82 Q105 50 148 44 L210 44 Q240 50 255 82 Z" fill="#c62828"/>
+            <path d="M98 80 Q112 54 148 48 L208 48 Q234 54 248 80 Z" fill="#d32f2f"/>
+            <!-- Windows hatchback -->
+            <path d="M105 78 Q116 56 148 50 L165 50 L165 78 Z" fill="#ffcdd2" opacity="0.85"/>
+            <rect x="170" y="50" width="68" height="28" rx="3" fill="#ffcdd2" opacity="0.85"/>
+            <line x1="167" y1="50" x2="167" y2="79" stroke="#b71c1c" stroke-width="3"/>
+            <line x1="167" y1="82" x2="167" y2="138" stroke="#b71c1c" stroke-width="2" opacity="0.4"/>
+            <line x1="228" y1="84" x2="228" y2="138" stroke="#b71c1c" stroke-width="2" opacity="0.4"/>
+            <rect x="272" y="94" width="14" height="26" rx="3" fill="#7f0000"/>
+            <rect x="274" y="97" width="10" height="3" rx="1" fill="#333"/>
+            <rect x="274" y="103" width="10" height="3" rx="1" fill="#333"/>
+            <ellipse cx="278" cy="91" rx="7" ry="4" fill="#fffde7"/>
+            <ellipse cx="278" cy="91" rx="4" ry="2.5" fill="#fff176"/>
+            <rect x="41" y="93" width="10" height="16" rx="3" fill="#c0392b"/>
+            <rect x="272" y="122" width="18" height="8" rx="4" fill="#7f0000"/>
+            <rect x="40" y="122" width="18" height="8" rx="4" fill="#7f0000"/>
+            <circle cx="100" cy="138" r="20" fill="#222"/><circle cx="100" cy="138" r="13" fill="#555"/><circle cx="100" cy="138" r="7" fill="#999"/><circle cx="100" cy="138" r="3.5" fill="#ddd"/>
+            <circle cx="222" cy="138" r="20" fill="#222"/><circle cx="222" cy="138" r="13" fill="#555"/><circle cx="222" cy="138" r="7" fill="#999"/><circle cx="222" cy="138" r="3.5" fill="#ddd"/>
+            <path d="M105 48 Q148 43 190 46" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Toyota Agya</h3><div class="car-type">City Car</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 300.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 1.500.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 4.500.000</span></div>
+          <div class="car-tags"><span class="tag">5 Kursi</span><span class="tag">Irit BBM</span><span class="tag">City</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Agya" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- BRIO -->
+      <div class="car-card" data-category="citycar">
+        <div class="car-img car-bg-orange">
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="100" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <rect x="40" y="82" width="240" height="58" rx="9" fill="#e65100"/>
+            <path d="M92 82 Q107 50 150 44 L212 44 Q242 50 255 82 Z" fill="#e65100"/>
+            <path d="M100 80 Q114 54 150 48 L210 48 Q236 54 248 80 Z" fill="#ef6c00"/>
+            <path d="M107 78 Q118 56 150 50 L167 50 L167 78 Z" fill="#ffe0b2" opacity="0.85"/>
+            <rect x="172" y="50" width="66" height="28" rx="3" fill="#ffe0b2" opacity="0.85"/>
+            <line x1="169" y1="50" x2="169" y2="79" stroke="#bf360c" stroke-width="3"/>
+            <line x1="169" y1="82" x2="169" y2="138" stroke="#bf360c" stroke-width="2" opacity="0.4"/>
+            <rect x="272" y="94" width="14" height="26" rx="3" fill="#bf360c"/>
+            <rect x="274" y="97" width="10" height="3" rx="1" fill="#333"/>
+            <rect x="274" y="103" width="10" height="3" rx="1" fill="#333"/>
+            <ellipse cx="278" cy="91" rx="7" ry="4" fill="#fffde7"/>
+            <ellipse cx="278" cy="91" rx="4" ry="2.5" fill="#fff176"/>
+            <rect x="41" y="93" width="10" height="16" rx="3" fill="#c0392b"/>
+            <rect x="272" y="122" width="18" height="8" rx="4" fill="#bf360c"/>
+            <rect x="40" y="122" width="18" height="8" rx="4" fill="#bf360c"/>
+            <circle cx="100" cy="138" r="20" fill="#222"/><circle cx="100" cy="138" r="13" fill="#555"/><circle cx="100" cy="138" r="7" fill="#999"/><circle cx="100" cy="138" r="3.5" fill="#ddd"/>
+            <circle cx="222" cy="138" r="20" fill="#222"/><circle cx="222" cy="138" r="13" fill="#555"/><circle cx="222" cy="138" r="7" fill="#999"/><circle cx="222" cy="138" r="3.5" fill="#ddd"/>
+            <path d="M107 48 Q150 43 192 46" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Honda Brio</h3><div class="car-type">City Car</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 300.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 1.500.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 4.500.000</span></div>
+          <div class="car-tags"><span class="tag">5 Kursi</span><span class="tag">Modern</span><span class="tag">Otomatis</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Brio" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- FORTUNER (SUV - taller body) -->
+      <div class="car-card" data-category="premium">
+        <div class="car-img car-bg-dark">
+          <div class="car-badge">PREMIUM</div>
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="115" ry="8" fill="rgba(0,0,0,0.35)"/>
+            <!-- SUV taller body -->
+            <rect x="25" y="65" width="270" height="73" rx="8" fill="#1c1c1c"/>
+            <path d="M55 65 Q68 30 118 25 L210 25 Q255 30 268 65 Z" fill="#1c1c1c"/>
+            <path d="M65 63 Q78 35 118 30 L208 30 Q248 35 258 63 Z" fill="#2a2a2a"/>
+            <!-- Big windows SUV -->
+            <path d="M80 62 Q92 38 118 32 L155 32 L155 62 Z" fill="#90caf9" opacity="0.8"/>
+            <rect x="160" y="32" width="85" height="30" rx="3" fill="#90caf9" opacity="0.8"/>
+            <line x1="157" y1="32" x2="157" y2="63" stroke="#111" stroke-width="3"/>
+            <line x1="157" y1="65" x2="157" y2="136" stroke="#111" stroke-width="2" opacity="0.5"/>
+            <line x1="232" y1="67" x2="232" y2="136" stroke="#111" stroke-width="2" opacity="0.5"/>
+            <!-- Grille big SUV -->
+            <rect x="272" y="82" width="20" height="36" rx="3" fill="#111"/>
+            <rect x="274" y="85" width="16" height="4" rx="1" fill="#333"/>
+            <rect x="274" y="92" width="16" height="4" rx="1" fill="#333"/>
+            <rect x="274" y="99" width="16" height="4" rx="1" fill="#333"/>
+            <rect x="274" y="106" width="16" height="4" rx="1" fill="#333"/>
+            <!-- Big headlights -->
+            <ellipse cx="281" cy="80" rx="9" ry="6" fill="#fffde7"/>
+            <ellipse cx="281" cy="80" rx="6" ry="4" fill="#fff176"/>
+            <!-- Taillight -->
+            <rect x="28" y="82" width="14" height="26" rx="3" fill="#b71c1c"/>
+            <rect x="29" y="83" width="12" height="24" rx="2" fill="#e53935"/>
+            <!-- Bumper -->
+            <rect x="270" y="128" width="24" height="9" rx="4" fill="#111"/>
+            <rect x="26" y="128" width="22" height="9" rx="4" fill="#111"/>
+            <!-- Big SUV wheels -->
+            <circle cx="90" cy="138" r="24" fill="#1a1a1a"/><circle cx="90" cy="138" r="16" fill="#3a3a3a"/><circle cx="90" cy="138" r="9" fill="#777"/><circle cx="90" cy="138" r="4" fill="#bbb"/>
+            <circle cx="232" cy="138" r="24" fill="#1a1a1a"/><circle cx="232" cy="138" r="16" fill="#3a3a3a"/><circle cx="232" cy="138" r="9" fill="#777"/><circle cx="232" cy="138" r="4" fill="#bbb"/>
+            <path d="M82 30 Q140 25 195 28" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Toyota Fortuner</h3><div class="car-type">SUV Premium</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 900.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 5.500.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 16.000.000</span></div>
+          <div class="car-tags"><span class="tag">7 Kursi</span><span class="tag">4WD</span><span class="tag">Mewah</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Fortuner" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- ALPHARD (Low MPV luxury) -->
+      <div class="car-card" data-category="premium">
+        <div class="car-img car-bg-gold">
+          <div class="car-badge">MEWAH</div>
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="112" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <!-- Alphard wide flat roof -->
+            <rect x="25" y="68" width="270" height="70" rx="8" fill="#2c2c2c"/>
+            <path d="M50 68 Q60 35 105 30 L218 30 Q262 35 272 68 Z" fill="#2c2c2c"/>
+            <path d="M58 66 Q68 38 107 33 L216 33 Q255 38 264 66 Z" fill="#3a3a3a"/>
+            <!-- Wide panoramic windows Alphard -->
+            <rect x="72" y="34" width="80" height="32" rx="3" fill="#90caf9" opacity="0.8"/>
+            <rect x="158" y="34" width="80" height="32" rx="3" fill="#90caf9" opacity="0.8"/>
+            <line x1="155" y1="34" x2="155" y2="67" stroke="#1a1a1a" stroke-width="4"/>
+            <line x1="155" y1="68" x2="155" y2="136" stroke="#1a1a1a" stroke-width="2" opacity="0.5"/>
+            <!-- Big chrome grille Alphard -->
+            <rect x="272" y="80" width="22" height="38" rx="3" fill="#111"/>
+            <rect x="274" y="83" width="18" height="4" rx="1" fill="#aaa"/>
+            <rect x="274" y="90" width="18" height="4" rx="1" fill="#aaa"/>
+            <rect x="274" y="97" width="18" height="4" rx="1" fill="#aaa"/>
+            <rect x="274" y="104" width="18" height="4" rx="1" fill="#aaa"/>
+            <!-- LED headlights -->
+            <rect x="268" y="72" width="20" height="8" rx="2" fill="#fffde7"/>
+            <rect x="270" y="73" width="16" height="5" rx="1" fill="#fff176"/>
+            <!-- Taillight LED strip -->
+            <rect x="27" y="75" width="14" height="30" rx="2" fill="#b71c1c"/>
+            <rect x="28" y="76" width="3" height="28" fill="#ff5252"/>
+            <!-- Bumper -->
+            <rect x="270" y="128" width="25" height="9" rx="4" fill="#111"/>
+            <rect x="25" y="128" width="23" height="9" rx="4" fill="#111"/>
+            <!-- Running boards -->
+            <rect x="45" y="136" width="230" height="4" rx="2" fill="#1a1a1a"/>
+            <circle cx="92" cy="138" r="22" fill="#1a1a1a"/><circle cx="92" cy="138" r="15" fill="#c9a84c"/><circle cx="92" cy="138" r="8" fill="#e2c87a"/><circle cx="92" cy="138" r="4" fill="#f5e6b2"/>
+            <circle cx="228" cy="138" r="22" fill="#1a1a1a"/><circle cx="228" cy="138" r="15" fill="#c9a84c"/><circle cx="228" cy="138" r="8" fill="#e2c87a"/><circle cx="228" cy="138" r="4" fill="#f5e6b2"/>
+            <path d="M74 33 Q155 28 238 31" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Toyota Alphard</h3><div class="car-type">MPV Premium</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 1.500.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 9.000.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 27.000.000</span></div>
+          <div class="car-tags"><span class="tag">7 Kursi</span><span class="tag">Full Option</span><span class="tag">VIP</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20Alphard" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- HIACE (Van/Minibus) -->
+      <div class="car-card" data-category="premium">
+        <div class="car-img car-bg-teal">
+          <div class="car-badge">GRUP</div>
+          <div class="road-line"></div>
+          <svg class="car-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="148" rx="118" ry="8" fill="rgba(0,0,0,0.3)"/>
+            <!-- Van/Minibus boxy shape -->
+            <rect x="18" y="48" width="284" height="88" rx="8" fill="#00695c"/>
+            <!-- Front cab area -->
+            <path d="M248 48 Q270 52 290 80 L290 136 L248 136 Z" fill="#004d40"/>
+            <!-- Windows van (multiple) -->
+            <rect x="30" y="56" width="55" height="38" rx="4" fill="#b2dfdb" opacity="0.85"/>
+            <rect x="92" y="56" width="55" height="38" rx="4" fill="#b2dfdb" opacity="0.85"/>
+            <rect x="154" y="56" width="55" height="38" rx="4" fill="#b2dfdb" opacity="0.85"/>
+            <line x1="88" y1="56" x2="88" y2="94" stroke="#004d40" stroke-width="3"/>
+            <line x1="150" y1="56" x2="150" y2="94" stroke="#004d40" stroke-width="3"/>
+            <line x1="212" y1="56" x2="212" y2="94" stroke="#004d40" stroke-width="3"/>
+            <!-- Front window -->
+            <rect x="248" y="56" width="36" height="32" rx="4" fill="#b2dfdb" opacity="0.85"/>
+            <!-- Grille van -->
+            <rect x="284" y="90" width="16" height="30" rx="3" fill="#003d33"/>
+            <rect x="286" y="93" width="12" height="4" rx="1" fill="#002820"/>
+            <rect x="286" y="100" width="12" height="4" rx="1" fill="#002820"/>
+            <rect x="286" y="107" width="12" height="4" rx="1" fill="#002820"/>
+            <!-- Headlights van -->
+            <rect x="282" y="56" width="14" height="30" rx="3" fill="#fffde7"/>
+            <rect x="284" y="58" width="10" height="26" rx="2" fill="#fff176"/>
+            <!-- Taillights van -->
+            <rect x="20" y="90" width="12" height="30" rx="3" fill="#c0392b"/>
+            <rect x="21" y="91" width="10" height="28" rx="2" fill="#e74c3c"/>
+            <!-- Bumpers -->
+            <rect x="280" y="130" width="22" height="9" rx="4" fill="#003d33"/>
+            <rect x="18" y="130" width="22" height="9" rx="4" fill="#003d33"/>
+            <!-- Big van wheels -->
+            <circle cx="82" cy="138" r="22" fill="#1a1a1a"/><circle cx="82" cy="138" r="14" fill="#444"/><circle cx="82" cy="138" r="8" fill="#888"/><circle cx="82" cy="138" r="4" fill="#ccc"/>
+            <circle cx="238" cy="138" r="22" fill="#1a1a1a"/><circle cx="238" cy="138" r="14" fill="#444"/><circle cx="238" cy="138" r="8" fill="#888"/><circle cx="238" cy="138" r="4" fill="#ccc"/>
+            <path d="M28 54 Q160 48 210 50" stroke="rgba(255,255,255,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="car-info">
+          <h3>Toyota HiAce</h3><div class="car-type">Minibus Premium</div>
+          <div class="price-row"><span class="price-label">Harian (24 jam)</span><span class="price-value">Rp 900.000</span></div>
+          <div class="price-row"><span class="price-label">Mingguan</span><span class="price-value">Rp 5.500.000</span></div>
+          <div class="price-row"><span class="price-label">Bulanan</span><span class="price-value">Rp 16.500.000</span></div>
+          <div class="car-tags"><span class="tag">14 Kursi</span><span class="tag">Luas</span><span class="tag">Grup</span></div>
+          <a href="https://wa.me/628123456789?text=Halo%20Wahyu%20Rent%20Car%2C%20saya%20ingin%20booking%20HiAce" class="btn-book">Booking via WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="cta-banner" id="contact">
+  <h2>Siap Berangkat Bersama Kami?</h2>
+  <p>Hubungi kami sekarang dan dapatkan penawaran terbaik untuk kebutuhan rental mobil Anda.</p>
+  <a href="tel:628123456789" class="cta-phone">+62 812-3456-789</a>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://wa.me/628123456789" class="btn-primary" style="font-size:18px;padding:16px 40px;">💬 Chat WhatsApp</a>
+    <a href="tel:628123456789" class="btn-outline" style="font-size:18px;padding:16px 40px;">📞 Telepon Langsung</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Wahyu <span>Rent</span> Car</div>
+      <p>Jasa rental mobil terpercaya di Jakarta dengan armada lengkap, harga terjangkau, dan layanan 24 jam penuh.</p>
+      <p style="margin-top:16px;">📍 Jakarta, Indonesia</p>
+    </div>
+    <div>
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Profil Kami</a></li>
+        <li><a href="#fleet">Armada</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Hubungi Kami</h4>
+      <ul>
+        <li>📞 <a href="tel:628123456789">+62 812-3456-789</a></li>
+        <li>💬 <a href="https://wa.me/628123456789">WhatsApp Kami</a></li>
+        <li>⏰ Buka 24 Jam / 7 Hari</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wahyu Rent Car. All rights reserved.</span>
+    <span>Rental Mobil Terpercaya Jakarta</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/628123456789" class="wa-float" title="Chat WhatsApp">💬</a>
+
+<script>
+  // ── TAB FILTER ARMADA ────────────────────────────────────────
+  const tabs  = document.querySelectorAll('.tab');
+  const cards = document.querySelectorAll('.car-card');
+
+  // Set semua card visible dulu
+  cards.forEach(c => { c.style.opacity = '1'; c.style.display = ''; });
+
+  function animateVisibleCards() {
+    let delay = 0;
+    cards.forEach(card => {
+      if (card.style.display !== 'none') {
+        card.classList.remove('animate-in');
+        void card.offsetWidth; // force reflow
+        card.style.animationDelay = delay + 'ms';
+        card.classList.add('animate-in');
+        delay += 80;
+      }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'semua' || card.dataset.category === filter) {
+          card.style.display = '';
+          card.style.opacity  = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      animateVisibleCards();
+    });
+  });
+
+  // ── MOBILE MENU ──────────────────────────────────────────────
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  const menuClose    = document.getElementById('menuClose');
+  const menuDim      = document.getElementById('menuDim');
+
+  function openMenu()  {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburgerBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  menuDim.addEventListener('click', closeMenu);
+
+  // Klik link menu → tutup menu dulu, lalu scroll ke section
+  document.querySelectorAll('.menu-link[data-target]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // cegah default jump langsung
+
+      // Tandai active
+      document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active-menu'));
+      link.classList.add('active-menu');
+
+      const targetId = link.dataset.target;
+      closeMenu();
+
+      // Tunggu animasi menu tutup, baru scroll
+      setTimeout(() => {
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 280);
+    });
+  });
+
+  // ── SCROLL ANIMATION ─────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity  = '1';
+        e.target.style.animation = 'fadeUp 0.5s ease forwards';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.why-card').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
